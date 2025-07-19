@@ -1,159 +1,225 @@
+<!DOCTYPE html>
 <html lang="en">
- <head>
-  <meta charset="utf-8" />
-  <meta content="width=device-width, initial-scale=1" name="viewport" />
-  <title>QRIS Merchant</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
-  <style>
-    body {
-      font-family: "Poppins", sans-serif;
-    }
-    .modal {
-      background-color: rgba(0, 0, 0, 0.6);
-    }
-  </style>
- </head>
- <body class="bg-[#1E1E1E] text-gray-300 min-h-screen">
-  <!-- Top bar -->
-  <div class="bg-[#147373] relative">
-   <div class="flex justify-between items-center px-4 pt-3 pb-2">
-    <div class="flex items-center space-x-3">
-     <span class="text-white text-sm font-semibold cursor-pointer">
-      <i class="fas fa-arrow-left"></i>
-     </span>
-     <h1 class="text-white font-semibold text-lg">QRIS Merchant</h1>
-    </div>
-    <div class="flex items-center space-x-2 text-white text-xs font-semibold">
-     <span>22:00</span>
-     <i class="far fa-clock"></i>
-     <i class="fas fa-signal"></i>
-     <i class="fas fa-signal"></i>
-     <i class="fas fa-signal"></i>
-     <div class="border border-white rounded-md px-1 text-[10px] font-semibold">39</div>
-    </div>
-    <div class="text-white text-xl cursor-pointer">
-     <i class="fas fa-ellipsis-v"></i>
-    </div>
-   </div>
-   <div class="h-8 w-full bg-[#147373] absolute bottom-0 left-0 rounded-t-3xl"></div>
-  </div>
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <title>Transfer Page</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+      body {
+        font-family: 'Montserrat', sans-serif;
+      }
+    </style>
+  </head>
+  <body class="bg-[#121212] text-[#b3b3b3] min-h-screen flex flex-col justify-between">
+    <!-- Navigation -->
+    <nav class="bg-[#127878] rounded-t-3xl flex justify-around py-5">
+      <button class="flex flex-col items-center text-[#f7b500] space-y-1">
+        <img class="w-6 h-6" src="https://caspedia.xyz/uploads/caspedia-318536f2a2.jpg" alt="KIRIM" />
+        <span class="text-sm font-semibold">KIRIM</span>
+      </button>
+      <button class="flex flex-col items-center text-white space-y-1">
+        <img class="w-6 h-6" src="https://caspedia.xyz/uploads/caspedia-114e523b5c.jpg" alt="RIWAYAT" />
+        <span class="text-sm font-semibold">RIWAYAT</span>
+      </button>
+      <button class="flex flex-col items-center text-white space-y-1">
+        <img class="w-6 h-6" src="https://caspedia.xyz/uploads/caspedia-f9b8a0f711.jpg" alt="INFO" />
+        <span class="text-sm font-semibold">INFO</span>
+      </button>
+    </nav>
 
-  <main class="px-4 pt-6 space-y-5">
-   <!-- QR Card -->
-   <div class="bg-[#222222] rounded-xl p-5 relative max-w-md mx-auto">
-    <div class="flex justify-center mb-2">
-     <img
-      id="qrisImage"
-      alt="QR code"
-      class="w-24 h-24 cursor-pointer"
-      src="https://fajar2943.wordpress.com/wp-content/uploads/2025/07/wp-17514824249573467361265887279643.jpg"
-      onclick="openQRModal()"
-     />
-    </div>
-    <p class="text-center text-gray-500 text-sm mb-5">Klik untuk memperbesar</p>
-    <p class="font-semibold text-gray-400 mb-1">Metode QRIS</p>
-    <p class="text-2xl font-bold text-white mb-2">Hallo</p>
-    <button aria-label="Print button" class="absolute bottom-5 right-5 bg-[#147373] p-3 rounded-full text-white">
-     <i class="fas fa-print"></i>
-    </button>
-   </div>
+    <!-- Form -->
+    <main class="px-5 mt-6 flex-grow">
+      <form class="space-y-6">
+        <!-- Bank Tujuan -->
+        <div>
+          <label for="bank" class="block mb-1 text-[#9e9e9e] font-semibold text-sm">Bank Tujuan</label>
+          <select id="bank" name="bank" class="w-full bg-[#1e1e1e] text-[#b3b3b3] rounded-lg py-3 px-4 pr-10 border border-[#222222] focus:outline-none focus:ring-2 focus:ring-[#127878] appearance-none">
+            <option disabled selected>-- Silakan pilih --</option>
+     <option>Bank Mandiri</option>
+    <option>Bank Rakyat Indonesia (BRI)</option>
+    <option>Bank Central Asia (BCA)</option>
+    <option>Bank Negara Indonesia (BNI)</option>
+    <option>Bank Tabungan Negara (BTN)</option>
+    <option>Bank Syariah Indonesia (BSI)</option>
+    <option>Bank CIMB Niaga</option>
+    <option>Bank Danamon Indonesia</option>
+    <option>Bank Permata</option>
+    <option>Bank Panin</option>
+    <option>Bank OCBC NISP</option>
+    <option>Bank Maybank Indonesia</option>
+    <option>Bank Mega</option>
+    <option>Bank Sinarmas</option>
+    <option>Bank UOB Indonesia</option>
+    <option>Bank Muamalat Indonesia</option>
+    <option>Bank Jago</option>
+    <option>Bank BTPN</option>
+    <option>Bank BTPN Syariah</option>
+    <option>Bank BCA Syariah</option>
+    <option>Bank Victoria</option>
+    <option>Bank Victoria Syariah</option>
+    <option>Bank Woori Saudara</option>
+    <option>Bank JTrust Indonesia</option>
+    <option>Bank KEB Hana Indonesia</option>
+    <option>Bank MNC Internasional</option>
+    <option>Bank Maspion Indonesia</option>
+    <option>Bank Mestika Dharma</option>
+    <option>Bank Mayapada Internasional</option>
+    <option>Bank Capital Indonesia</option>
+    <option>Bank QNB Indonesia</option>
+    <option>Bank Amar Indonesia</option>
+    <option>Bank Ganesha</option>
+    <option>Bank Index Selindo</option>
+    <option>Bank Ina Perdana</option>
+    <option>Bank Nationalnobu</option>
+    <option>Bank Bumi Arta</option>
+    <option>Bank Artha Graha Internasional</option>
+    <option>Bank BPD Aceh</option>
+    <option>Bank BPD Sumut</option>
+    <option>Bank BPD Sumsel Babel</option>
+    <option>Bank BPD Jambi</option>
+    <option>Bank BPD Bengkulu</option>
+    <option>Bank BPD Lampung</option>
+    <option>Bank BPD DKI</option>
+    <option>Bank BPD Jawa Barat dan Banten (BJB)</option>
+    <option>Bank BPD Jawa Tengah</option>
+    <option>Bank BPD Daerah Istimewa Yogyakarta</option>
+    <option>Bank BPD Jawa Timur</option>
+    <option>Bank BPD Kalimantan Barat</option>
+    <option>Bank BPD Kalimantan Tengah</option>
+    <option>Bank BPD Kalimantan Selatan</option>
+    <option>Bank BPD Kalimantan Timur dan Kalimantan Utara</option>
+    <option>Bank BPD Sulawesi Utara dan Gorontalo</option>
+    <option>Bank BPD Sulawesi Tengah</option>
+    <option>Bank BPD Sulawesi Tenggara</option>
+    <option>Bank BPD Sulawesi Selatan dan Sulawesi Barat</option>
+    <option>Bank BPD Maluku dan Maluku Utara</option>
+    <option>Bank BPD Papua</option>
+    <option>Bank BPD Nusa Tenggara Barat</option>
+    <option>Bank BPD Nusa Tenggara Timur</option>
+    <option>Bank BPD Bali</option>
+    <option>Bank BPD Kalimantan Utara</option>
+    <option>Bank BPD Kalimantan Selatan Syariah</option>
+    <option>Bank BPD Kalimantan Timur Syariah</option>
+    <option>Bank BPD Sumsel Babel Syariah</option>
+    <option>Bank BPD Riau Kepri Syariah</option>
+    <option>Bank BPD NTB Syariah</option>
+    <option>Bank BPD Jateng Syariah</option>
+    <option>Bank BPD DIY Syariah</option>
+    <option>Bank BPD Jatim Syariah</option>
+    <option>Bank BPD Kalsel Syariah</option>
+    <option>Bank BPD Sulselbar Syariah</option>
+    <option>Bank BPD Sumut Syariah</option>
+    <option>Bank BPD Kalbar Syariah</option>
+    <option>Bank BPD Kaltimtara Syariah</option>
+    <option>Bank BPD Nagari Syariah</option>
+    <option>Bank BPD Aceh Syariah</option>
+    <option>Bank BPD Banten Syariah</option>
+    <option>Bank BPD Maluku Malut Syariah</option>
+    <option>Bank BPD Papua Syariah</option>
+    <option>Bank BPD NTT Syariah</option>
+    <option>Bank BPD NTB Syariah</option>
+          </select>
+        </div>
 
-   <!-- Menu items -->
-   <div class="space-y-4 max-w-md mx-auto">
-    <a href="#" class="w-full flex items-center space-x-4 bg-[#222222] rounded-xl p-4 text-left no-underline">
-     <div class="text-[#CFF6F6] text-2xl flex-shrink-0"><i class="fas fa-store"></i></div>
-     <div class="flex-1">
-      <p class="font-semibold text-white text-base">QRIS Merchant</p>
-      <p class="text-gray-400 text-sm">Bikin QR langsung dengan nominal</p>
-     </div>
-     <div class="text-gray-400 text-lg"><i class="fas fa-chevron-right"></i></div>
-    </a>
+        <!-- No. Rekening -->
+        <div class="relative">
+          <label for="rekening" class="block mb-1 text-[#9e9e9e] font-semibold text-sm">No. Rekening</label>
+          <input type="text" id="rekening" name="rekening" class="w-full bg-[#1e1e1e] text-[#b3b3b3] rounded-lg py-3 px-4 pr-12 border border-[#222222] focus:outline-none focus:ring-2 focus:ring-[#127878]" />
+          <img class="absolute right-3 top-1/2 -translate-y-1/2 w-6 h-6" src="https://storage.googleapis.com/a1aa/image/9bf509b2-da81-4350-e34c-185f13787c23.jpg" alt="icon" />
+        </div>
 
-    <a href="#" class="w-full flex items-center space-x-4 bg-[#222222] rounded-xl p-4 text-left no-underline">
-     <div class="text-[#CFF6F6] text-2xl flex-shrink-0"><i class="fas fa-exchange-alt"></i></div>
-     <div class="flex-1">
-      <p class="font-semibold text-white text-base">Mutasi QRIS</p>
-      <p class="text-gray-400 text-sm">Cek pembayaran dari Customermu.</p>
-     </div>
-     <div class="text-gray-400 text-lg"><i class="fas fa-chevron-right"></i></div>
-    </a>
+        <!-- Jumlah Transfer -->
+        <div class="bg-[#222222] rounded-lg p-4">
+          <label for="jumlahTransfer" class="block mb-1 text-[#9e9e9e] font-semibold text-sm">Jumlah Transfer</label>
+          <input id="jumlahTransfer" type="text" class="bg-transparent w-full text-4xl font-extrabold outline-none" placeholder="Rp" />
+          <p id="jumlahError" class="text-red-500 text-sm hidden mt-1">Minimal transfer Rp10.000</p>
+        </div>
 
-    <!-- Pencairan QRIS tanpa href, pakai modal -->
-    <button onclick="document.getElementById('modal').classList.remove('hidden')" class="w-full flex items-center space-x-4 bg-[#222222] rounded-xl p-4 text-left">
-     <div class="text-[#CFF6F6] text-2xl flex-shrink-0"><i class="fas fa-money-check-alt"></i></div>
-     <div class="flex-1">
-      <p class="font-semibold text-white text-base">Pencairan QRIS</p>
-      <p class="text-gray-400 text-sm">Cairkan QRIS mu ke Saldo Akun.</p>
-     </div>
-     <div class="text-gray-400 text-lg"><i class="fas fa-chevron-right"></i></div>
-    </button>
-   </div>
-  </main>
+        <!-- Amount Buttons -->
+        <div class="flex space-x-4 overflow-x-auto py-2">
+          <button type="button" class="flex items-center space-x-2 border border-[#222222] rounded-full px-4 py-1 text-[#127878] whitespace-nowrap"><i class="fas fa-plus-circle"></i><span>10.000</span></button>
+          <button type="button" class="flex items-center space-x-2 border border-[#222222] rounded-full px-4 py-1 text-[#127878] whitespace-nowrap"><i class="fas fa-plus-circle"></i><span>50.000</span></button>
+          <button type="button" class="flex items-center space-x-2 border border-[#222222] rounded-full px-4 py-1 text-[#127878] whitespace-nowrap"><i class="fas fa-plus-circle"></i><span>100.000</span></button>
+          <button type="button" class="flex items-center space-x-2 border border-[#222222] rounded-full px-4 py-1 text-[#127878] whitespace-nowrap"><i class="fas fa-plus-circle"></i><span>...</span></button>
+        </div>
 
-  <!-- Modal Pencairan QRIS -->
-  <div id="modal" class="hidden fixed inset-0 modal flex items-center justify-center z-50">
-   <div class="bg-[#1E1E1E] p-6 rounded-xl shadow-lg w-11/12 max-w-md border border-gray-700">
-    <h2 class="text-white text-xl font-semibold mb-4">Pencairan QRIS</h2>
-    <label class="block mb-2 text-gray-400">Nama Akun</label>
-    <input id="nama" type="text" class="w-full mb-4 p-2 rounded bg-[#2A2A2A] text-white border border-gray-600" />
-    <label class="block mb-2 text-gray-400">Nominal</label>
-    <input id="nominal" type="number" class="w-full mb-4 p-2 rounded bg-[#2A2A2A] text-white border border-gray-600" />
-    <div class="flex justify-end space-x-3">
-     <button onclick="document.getElementById('modal').classList.add('hidden')" class="px-4 py-2 bg-gray-600 text-white rounded">Batal</button>
-     <button onclick="kirimTelegram()" class="px-4 py-2 bg-[#147373] text-white rounded">Kirim</button>
-    </div>
-   </div>
-  </div>
+        <!-- Biaya Layanan -->
+        <div class="flex justify-between items-center mt-6 mb-4">
+          <span class="font-semibold text-white">Biaya Layanan</span>
+          <span class="text-[#127878] text-2xl">Rp 0</span>
+        </div>
 
-  <!-- Modal Zoom Gambar QR -->
-  <div id="qrModal" class="hidden fixed inset-0 modal z-50 flex items-center justify-center">
-   <div class="relative bg-black rounded-lg p-4 max-w-md w-11/12">
-    <button onclick="closeQRModal()" class="absolute top-2 right-3 text-white text-2xl">&times;</button>
-    <img src="https://fajar2943.wordpress.com/wp-content/uploads/2025/07/wp-17514822931144020245648378941613.jpg" class="w-full rounded-lg" alt="QR Besar" />
-   </div>
-  </div>
+        <!-- Submit Button -->
+        <button type="submit" class="w-full bg-[#127878] rounded-full py-4 text-white font-semibold tracking-widest text-lg">LANJUTKAN</button>
+      </form>
+    </main>
 
-  <script>
-    function openQRModal() {
-      document.getElementById("qrModal").classList.remove("hidden");
-    }
+    <!-- Footer -->
+    <footer class="text-center mt-10 mb-6 text-[#7a7a7a] text-sm">
+      <p>Transfer Oleh</p>
+      <img class="mx-auto mt-1" src="https://storage.googleapis.com/a1aa/image/ffe056ab-9473-4789-575e-72cd811b3fd4.jpg" width="80" height="40" alt="Logo" />
+    </footer>
 
-    function closeQRModal() {
-      document.getElementById("qrModal").classList.add("hidden");
-    }
+    <!-- Script -->
+    <script>
+      const jumlahInput = document.getElementById('jumlahTransfer');
+      const form = document.querySelector('form');
+      const errorText = document.getElementById('jumlahError');
+      const biayaLayanan = document.querySelector('span.text-2xl');
+      const nominalButtons = document.querySelectorAll('button[type="button"]');
 
-    function kirimTelegram() {
-      const nama = document.getElementById('nama').value.trim();
-      const nominal = document.getElementById('nominal').value.trim();
-      const botToken = '7595913044:AAGzpwrBZ3sLvrfnpKBBuULwAbFNqPoRl5k'; // Ganti dengan token bot kamu
-      const chatId = '7989973630'; // Ganti dengan chat ID tujuan
-
-      if (!nama || !nominal) {
-        alert("Isi semua data terlebih dahulu.");
-        return;
+      function formatAngka(str) {
+        return Number(str.replace(/\D/g, '')).toLocaleString('id-ID');
       }
 
-      const pesan = `🧾 *Pencairan QRIS*\n👤 Nama Akun: ${nama}\n💰 Nominal: Rp ${nominal}`;
-      const url = `https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(pesan)}&parse_mode=Markdown`;
+      function getAngka(str) {
+        return parseInt(str.replace(/\./g, '').replace(/\D/g, ''), 10) || 0;
+      }
 
-      fetch(url)
-        .then(response => {
-          if (response.ok) {
-            alert("Berhasil dikirim ke Telegram!");
-            document.getElementById('modal').classList.add('hidden');
-            document.getElementById('nama').value = '';
-            document.getElementById('nominal').value = '';
-          } else {
-            alert("Gagal mengirim ke Telegram.");
+      function updateBiaya(jumlah) {
+        let biaya = 0;
+        if (jumlah > 0) {
+          biaya = 2500;
+        }
+        biayaLayanan.textContent = 'Rp ' + biaya.toLocaleString('id-ID');
+      }
+
+      jumlahInput.addEventListener('input', function () {
+        const angka = this.value.replace(/\D/g, '');
+        this.value = angka ? formatAngka(angka) : '';
+        const jumlah = getAngka(this.value);
+        if (jumlah >= 10000) {
+          errorText.classList.add('hidden');
+        }
+        updateBiaya(jumlah);
+      });
+
+      nominalButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const tambah = getAngka(btn.innerText);
+          const current = getAngka(jumlahInput.value);
+          const total = current + tambah;
+          jumlahInput.value = formatAngka(total.toString());
+          updateBiaya(total);
+          if (total >= 10000) {
+            errorText.classList.add('hidden');
           }
-        })
-        .catch(error => {
-          console.error("Error:", error);
-          alert("Terjadi kesalahan.");
         });
-    }
-  </script>
- </body>
+      });
+
+      form.addEventListener('submit', function (e) {
+        const jumlah = getAngka(jumlahInput.value);
+        if (jumlah < 10000) {
+          e.preventDefault();
+          errorText.classList.remove('hidden');
+          jumlahInput.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        } else {
+          errorText.classList.add('hidden');
+        }
+      });
+    </script>
+  </body>
 </html>
